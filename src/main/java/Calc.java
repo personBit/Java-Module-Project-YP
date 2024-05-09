@@ -101,7 +101,9 @@ public class Calc {
         int price2 = (int) price;
 
         rubleFormat = price2 % 10;
-        if (rubleFormat == 1) {
+        if (price2 == 11 || price2 == 12 || price2 == 13 || price2 == 14) {
+            return "рублей";
+        } else if (rubleFormat == 1) {
             return "рубль";
         } else if (rubleFormat == 2 || rubleFormat == 3 || rubleFormat == 4) {
             return "рубля";
