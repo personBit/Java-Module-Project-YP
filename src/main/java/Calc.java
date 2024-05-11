@@ -97,11 +97,14 @@ public class Calc {
         System.out.println(String.format("Итого, каждый должен заплатить: %.2f ", fromEach) + rubleFormat(fromEach));
     }
 
-    public String rubleFormat(double price) { // определяем формат слова "рубль"
-        int price2 = (int) price;
+     public String rubleFormat(double price) { // определяем формат слова "рубль"
+        int priceInt = (int) price;
 
-        rubleFormat = price2 % 10;
-        if (price2 == 11 || price2 == 12 || price2 == 13 || price2 == 14) {
+        rubleFormat = priceInt % 10;
+        int rubleFormatH = priceInt % 100;
+        if (price > 100 && (rubleFormatH == 11 || rubleFormatH == 12 || rubleFormatH == 13 || rubleFormatH == 14)) {
+            return "рублей";
+        } else if (priceInt == 11 || priceInt == 12 || priceInt == 13 || priceInt == 14) {
             return "рублей";
         } else if (rubleFormat == 1) {
             return "рубль";
